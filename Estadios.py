@@ -1,5 +1,16 @@
 class Estadio:
     def __init__(self, id, nombre, ubicacion,capacidad,restaurantes):
+        '''
+        Inicializa la clase Estadio
+        
+        Parametros:
+        id : Identificador del estadio
+        nombre: Nombre del estadio
+        ubicacion: Ciudad donde esta ubicado el estadio
+        capacidad: Capacidad del estadio
+        restaurantes: restaurantes que hay en el estadio
+        
+        '''
         self.id = id
         self.nombre = nombre
         self.ubicacion = ubicacion
@@ -7,11 +18,13 @@ class Estadio:
         self.restaurantes = restaurantes
 
 
-def __str__(self):
-        return f"Estadio: {self.nombre}\n - Ubicación: {self.ubicacion}\n - Capacidad: {self.capacidad}\n - Restaurantes: {','.join([r.nombre for r in self.restaurantes])}"
+    def __str__(self):
+        # Devuelve una representación en string del estadio
+        return f"Estadio: {self.nombre}\n - Ubicación: {self.ubicacion}\n - Capacidad: {self.capacidad}\n - Restaurantes: {self.restaurantes}"
     
 
-def mapa_estadio(self):
+    def mapa_estadio(self):
+        # Devuelve un mapa del estadio
         mapa = ""
         for i in range(self.capacidad[0]):
             for j in range(self.capacidad[1]):
@@ -20,11 +33,12 @@ def mapa_estadio(self):
         return mapa
 
 
-def __show__restaurantes__(self):
-    if self.restaurantes:
-        restaurantes = ""
-        for restaurantes in self.restaurantes:
-            restaurantes += restaurantes.show() + "\n"
-
-        return restaurantes
+    def show__restaurantes(self):
+    # Muestra la lista de restaurantes del estadio
+    # Utiliza la capacidad del estadio para determinar el número de filas y columnas
+        if self.restaurantes:
+            restaurantes_str = ""
+            for restaurantes in self.restaurantes:
+                restaurantes_str += restaurantes.show() + "\n"
+            return restaurantes_str
 

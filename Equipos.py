@@ -1,18 +1,22 @@
-from Data import obtener_datos_equipos
 class Equipo:
     def __init__(self, nombre, codigo_fifa, grupo, id):
+        """
+        Crea un objeto Equipo con información básica.
+        
+        Parámetros:
+        - nombre: El nombre del equipo 
+        - codigo_fifa: El código FIFA del equipo 
+        - grupo: El grupo en el que se encuentra el equipo 
+        - id: El identificador único del equipo 
+        
+        """
         self.nombre = nombre
         self.codigo_fifa = codigo_fifa
         self.grupo = grupo
         self.id= id
+    
+    def __show__(self):
+    #Devuelve un string con la información del equipo de forma legible.
+        return f"- Nombre: {self.nombre}\n - Codigo Fifa: {self.codigo_fifa}\n - Grupo: {self.grupo}\n - Id: {self.id}"
 
-obtener_datos_equipos()
 
-def __show__(self):
-        return f"Nombre: {self.nombre}\nCodigo Fifa: {self.codigo_fifa}\nGrupo: {self.grupo}\nId: {self.id}"
-
-
-def respaldar_datos(equipos):
-    with open('equipos.txt', 'w') as file:
-        for equipo in equipos:
-            file.write(f"Nombre: {equipo.nombre}, Código FIFA: {equipo.codigo_fifa}, Grupo: {equipo.grupo}\n")
