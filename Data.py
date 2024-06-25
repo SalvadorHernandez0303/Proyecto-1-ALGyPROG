@@ -32,7 +32,7 @@ def obtener_datos():
     urls = [
         ("https://raw.githubusercontent.com/Algoritmos-y-Programacion/api-proyecto/main/teams.json", "datos_equipos"),
         ("https://raw.githubusercontent.com/Algoritmos-y-Programacion/api-proyecto/main/stadiums.json", "estadios"),
-        ("https://raw.githubusercontent.com/Algoritmos-y-Programacion/api-proyecto/main/matches.json", "datos_partidos")
+        ("https://raw.githubusercontent.com/Algoritmos-y-Programacion/api-proyecto/main/matches.json", "datos_partidos"),
         ("https://raw.githubusercontent.com/Algoritmos-y-Programacion/api-proyecto/main/rounds.json", "jornadas")
     ]
     #Crear un diccionario con los datos
@@ -54,11 +54,25 @@ def guardar_datos_en_archivotxt(datos):
     for key, value in datos.items():
         archivo_individual = f'{key}.txt'
         with open(archivo_individual, 'w') as f:
-            f.write(f'{value}')
+            f.write(f'{key.upper()}\n\n')
+            for item in value:
+                f.write(f'  {item}\n')
+            f.write('\n\n')
         
     # Crear un archivo que contiene toda la información
     archivo_todos = "todos_datos.txt"
     with open(archivo_todos, 'w') as f:
         for key, value in datos.items():
-            f.write(f"{key}: {value}\n")
-pass
+            f.write(f"{key.upper()}:\n\n")
+            for item in value:
+                f.write(f"  {item}\n")
+            f.write('\n\n')
+                
+
+# Prueba del código
+#datos = obtener_datos()
+#print("Datos obtenidos:")
+#print(datos)
+
+#guardar_datos_en_archivotxt(datos)
+#print("Datos guardados en archivos TXT")
