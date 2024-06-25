@@ -15,6 +15,6 @@ class Equipo:
         self.grupo = grupo
         self.id= id
     
-    def __show__(self):
+    def __str__(self):
     #Devuelve un string con la información del equipo de forma legible.
         return f"- Nombre: {self.nombre}\n - Codigo Fifa: {self.codigo_fifa}\n - Grupo: {self.grupo}\n - Id: {self.id}"

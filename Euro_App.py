@@ -15,5 +15,7 @@ class Euro_App:
         self.estadio = []
         self.equipo = []
         self.restaurante = []
+        self.cliente = []
+        
         
         
