@@ -45,12 +45,22 @@ def obtener_datos():
     return datos
 
 def escribir_datos_para_guardado(f, valor_data):
+    """
+    Función que escribe los datos en un archivo para su guardado
+    
+    Parámetros: 
+    f (file): Archivo donde se escribirán los datos
+    valor_data (dict o list): Diccionario/lista con los datos a escribir en el archivo
+    """
+    # Si valor_data es un diccionario, se itera sobre sus items
     if isinstance(valor_data, dict):
         for key, value in valor_data.items():
+            # Si el valor es una lista, se itera sobre sus elementos
             if isinstance(value, list):
                 for item in value:
                     f.write(f"{{ '{key}': ")
                     f.write(f"{item} }}\n")
+    # Si valor_data es una lista, se itera sobre sus elementos
     elif isinstance(valor_data, list):
         for item in valor_data:
             f.write(f"  {item}\n")
