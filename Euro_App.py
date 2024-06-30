@@ -1,7 +1,7 @@
 import time, ast, json
 
+from Interfaces.FileApiManager import FileApiManager
 from Restaurantes import Restaurante
-from Data import obtener_datos
 from Estadios import Estadio
 from Equipos import Equipo
 from Partido import Partido
@@ -11,8 +11,7 @@ from Ticket import Ticket
 
 
 class Euro_App:
-    
-    
+       
     def __init__(self):
         self.partido = []
         self.estadio = []
@@ -21,15 +20,14 @@ class Euro_App:
         self.cliente = []
         self.ticket = []
     
-    def precargado_datos(self):
-        self.datos = obtener_datos()
+    def precargado_datos(self, data):
+        self.datos = FileApiManager().Mapear_datos(data)
         self.datos_partidos = self.datos[0]
         self.datos_estadios = self.datos[1]
         self.datos_equipos = self.datos[2]
         self.restaurante = Restaurante()
         self.cliente = Cliente()
         self.ticket = Ticket()
-    
     
     def obtener_menu_seleccion(self, titulo_data, nombre_clase):
         """
@@ -137,7 +135,6 @@ class Euro_App:
                     # Se encuentra el título "JORNADAS:"
                     titulo_encontrado = True
                     
-    
     def menu_opcion_uno_reg_cli(self, eurocopa_2024):
         """
     Muestra el menú de registro de cliente.
@@ -215,18 +212,60 @@ class Euro_App:
             pass
         if busqueda == 3:
             pass
+    
+    def menu_opcion_tres_comp_tkt(self, eurocopa_2024):
+        if isinstance(eurocopa_2024, Euro_App):
+            while True:
+                cedula = input("Para comprar un boleto, debe indicar su cédula para verificar que está registrado(a). Ingrese su cédula a continuación: ")
+                if cedula.isdigit():
+                    # Si la cédula es un número, se sale del ciclo
+                    cedula = int(cedula)
+                    break
+                else:
+                    print("La cédula debe ser un número. Por favor, intente de nuevo.")
+            
+            Cedula_registrada = False
+
+            for item in eurocopa_2024.cliente:
+                if cedula == item.cedula:
+                    Cedula_registrada = True
+                    break
+            
+            if Cedula_registrada:      
+                print("Seleccione un partido:")
+                # Partido()
+                opciones_partidos = eurocopa_2024.obtener_menu_seleccion("DATOS_PARTIDOS:\n", "Partido")
+                partido_identificador = []
+                indice = 0
+                for opciones in opciones_partidos:
+                    indice += 1
+                    partido_id, partido_numero, partido_local, partido_visitante, partido_fecha = opciones
+                    partido_identificador.append((indice, partido_id))
+                    partido_hora = eurocopa_2024.obtener_hora_partido(partido_numero)
+                    print(f"{indice}. {partido_local} vs. {partido_visitante} - Fecha: {partido_fecha} {partido_hora}")
+                
+                partido_seleccionado = int(input("\nSeleccione el número del partido que desea comprar: "))
+                for pos, id in partido_identificador:
+                    if pos == partido_seleccionado:
+                        partido_seleccionado = id
+                        
+                # print(partido_seleccionado)
+            else:
+                print("La cédula no está registrada. Por favor, registrese en el sistema usando la opción 1 del menú.\n")
+        else:
+            raise TypeError("Clase incorrecta entregada. Por favor, revisar el código")
 
 def eurocopa_menu(eurocopa_2024: Euro_App):
 
     while True:
         print("Bienvenido a la Eurocopa 2024!")
         print("Menú de opciones:")
-        print("1. Registro de cliente.")#Mitad de gestion de venta de entrada
-        print("2. Consultas.")#Gestion de partidos y estadios
-        print("3. Compra de entradas.")#Mitad de destion de venta de entrada
-        print("4. Compra en el restaurante (Solo VIP).")#Gestion restaurante/venta restaurante
-        print("5. Registrar asistencia al partido.")#Gestion de asistencia de partido
-        print("6. Reportes.")#Gestion de estadistica
+        print("1. Registro de cliente.") # Mitad de gestion de venta de entrada
+        print("2. Consultas.") # Gestion de partidos y estadios
+        print("3. Compra de entradas.") # Mitad de destion de venta de entrada
+        print("4. Compra en el restaurante (Solo VIP).") # Gestion restaurante/venta restaurante
+        print("5. Registrar asistencia al partido.") # Gestion de asistencia de partido
+        print("6. Reportes.") # Gestion de estadistica
         
         while True:
             respuesta = input("Por favor, seleccione una opción: ")
@@ -242,24 +281,7 @@ def eurocopa_menu(eurocopa_2024: Euro_App):
         elif respuesta == 2:
             eurocopa_2024.menu_opcion_dos_ges_par_asis()
         elif respuesta == 3:
-            print("Seleccione un partido:")
-            # Partido()
-            opciones_partidos = eurocopa_2024.obtener_menu_seleccion("DATOS_PARTIDOS:\n", "Partido")
-            partido_identificador = []
-            indice = 0
-            for opciones in opciones_partidos:
-                indice += 1
-                partido_id, partido_numero, partido_local, partido_visitante, partido_fecha = opciones
-                partido_identificador.append((indice, partido_id))
-                partido_hora = eurocopa_2024.obtener_hora_partido(partido_numero)
-                print(f"{indice}. {partido_local} vs. {partido_visitante} - Fecha: {partido_fecha} {partido_hora}")
-            
-            partido_seleccionado = int(input("\nSeleccione el número del partido que desea comprar: "))
-            for pos, id in partido_identificador:
-                if pos == partido_seleccionado:
-                    partido_seleccionado = id
-                    
-            # print(partido_seleccionado)
+            eurocopa_2024.menu_opcion_tres_comp_tkt(eurocopa_2024)
         elif respuesta == 4:
             pass
         elif respuesta == 5:
@@ -270,7 +292,7 @@ def eurocopa_menu(eurocopa_2024: Euro_App):
             print("Su opción es inválida. Por favor, intente de nuevo.")
             print("")
         
-        time.sleep(5)
+        time.sleep(1)
         # partido = Partido(input)
 
         # print("Seleccione el tipo de entrada:")

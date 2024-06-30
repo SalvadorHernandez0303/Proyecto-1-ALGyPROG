@@ -34,9 +34,6 @@ class FileClassManager(FileManager):
             f.seek(0)
             json.dump(data, f, indent=2)
             f.truncate()
-            
-    def Archivo_existe(self, filepath):
-        return os.path.exists(filepath)
     
     def Archivo_validar_vacio(self, filepath):
         return os.path.isfile(filepath) and os.path.getsize(filepath)

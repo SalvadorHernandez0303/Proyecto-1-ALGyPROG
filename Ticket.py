@@ -1,7 +1,7 @@
 from Cliente import Cliente
 from Interfaces.FileClassManager import FileClassManager
 class Ticket(FileClassManager):
-    def __init__(self, codigo_ticket, partido, tipo):
+    def __init__(self, codigo_ticket = 0, partido=None, tipo="General"):
         self.codigo_ticket = codigo_ticket
         self.partido = partido
         self.precio_base = 35 if tipo == "General" else 75

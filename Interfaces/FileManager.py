@@ -1,10 +1,11 @@
 from abc import ABC, abstractmethod
+import os
 
 class FileManager(ABC):
     FilePath = ""
     
     @abstractmethod
-    def Crear_archivo(self, filepath, content):
+    def Crear_archivo(self, filepath):
         pass
     
     @abstractmethod
@@ -14,3 +15,6 @@ class FileManager(ABC):
     @abstractmethod
     def Actualizar_archivo(self, filepath):
         pass
+    
+    def Archivo_existe(self, filepath):
+        return os.path.exists(filepath)

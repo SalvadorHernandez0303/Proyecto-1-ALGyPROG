@@ -1,4 +1,5 @@
 [
   "{\"nombre\": \"Marcell\", \"cedula\": 24220610, \"edad\": 30}",
-  "{\"nombre\": \"Salvador\", \"cedula\": 12345678, \"edad\": 40}"
+  "{\"nombre\": \"Salvador\", \"cedula\": 12345678, \"edad\": 40}",
+  "{\"nombre\": \"Pedro\", \"cedula\": 87654321, \"edad\": 25}"
 ]
