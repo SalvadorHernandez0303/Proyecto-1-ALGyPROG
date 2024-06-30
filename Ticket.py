@@ -1,25 +1,18 @@
+from Cliente import Cliente
 class Ticket:
-    def __init__(self, codigo_ticket, partido, precio):
+    def __init__(self, codigo_ticket, partido, tipo):
         self.codigo_ticket = codigo_ticket
         self.partido = partido
-        self.precio = precio
+        self.precio_base = 35 if tipo == "General" else 75
         
         def __str__():
-            return f"Ticket {self.codigo_ticket}\n - Partido: {self.partido}\n - Precio: {self.precio}"
+            return f"Ticket {codigo_ticket} para el partido {partido}\n"
         
-    def vip(self):
-        if self.codigo_ticket == "VIP":
-            for precio in self.precio:
-                precio = '75$'
-                self.precio = precio
-        elif self.codigo_ticket == "General":
-            for precio in self.precio:
-                precio = '35$'
-                self.precio = precio
-        return precio
-
-    def descuento(self):
-        for cliente in self.codigo_ticket:
-            if cliente == "Posee una cedula Vampira":
-                for precio in self.precio:
-                    precio = precio * 0.5
+    def precio_final(self,cedula):
+            precio == self.precio_base
+            if cedula.es_vampiro():
+                precio *=0.5
+                print('Tienes un 50% de descuento')
+            precio += precio *0.16
+            return precio
+        

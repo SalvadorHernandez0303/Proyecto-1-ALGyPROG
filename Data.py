@@ -38,41 +38,50 @@ def obtener_datos():
     #Crear un diccionario con los datos
     datos = {}
     #Itera sobre la lista de URLs y obtiene los datos de cada una
-    for url, nombre_variable in urls:
+    for url, clave_objeto in urls:
         #Llama a la funcion get_json_from url(url) para obtener los datos JSON de la URL
-        datos[nombre_variable] = get_json_from_url(url)
+        datos[clave_objeto] = get_json_from_url(url)
     #Devuelve el diccionario
     return datos
 
-def guardar_datos_en_archivotxt(datos):
+def escribir_datos_para_guardado(f, valor_data):
+    if isinstance(valor_data, dict):
+        for key, value in valor_data.items():
+            if isinstance(value, list):
+                for item in value:
+                    f.write(f"{{ '{key}': ")
+                    f.write(f"{item} }}\n")
+    elif isinstance(valor_data, list):
+        for item in valor_data:
+            f.write(f"  {item}\n")
+
+def guardar_datos_en_archivo_txt(datos):
     """
     Función que guarda los datos en un archivo TXT.
     
     Args:
         datos : El diccionario con los datos a guardar.
     """
-    for key, value in datos.items():
-        archivo_individual = f'{key}.txt'
-        with open(archivo_individual, 'w') as f:
-            f.write(f'{key.upper()}\n\n')
-            for item in value:
-                f.write(f'  {item}\n')
-            f.write('\n\n')
+    # for key, value in datos.items():
+    #     archivo_individual = f'{key}.txt'
+    #     with open(archivo_individual, 'w') as f:
+    #         f.write(f'{key.upper()}\n\n')
+    #         for item in value:
+    #             f.write(f'  {item}\n')
+    #         f.write('\n\n')
         
     # Crear un archivo que contiene toda la información
-    archivo_todos = "todos_datos.txt"
-    with open(archivo_todos, 'w') as f:
+    nombre_archivo_txt = "todos_datos.txt"
+    with open(nombre_archivo_txt, 'w', encoding="utf-8") as f:
         for key, value in datos.items():
             f.write(f"{key.upper()}:\n\n")
-            for item in value:
-                f.write(f"  {item}\n")
+            escribir_datos_para_guardado(f, value)
             f.write('\n\n')
                 
 
 # Prueba del código
-#datos = obtener_datos()
-#print("Datos obtenidos:")
-#print(datos)
-
-#guardar_datos_en_archivotxt(datos)
-#print("Datos guardados en archivos TXT")
+datos = obtener_datos()
+# print("Datos obtenidos:")
+# print(datos)
+guardar_datos_en_archivo_txt(datos)
+print("Datos guardados en archivos TXT \n")
