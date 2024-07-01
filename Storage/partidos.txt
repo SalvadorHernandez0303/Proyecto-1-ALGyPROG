@@ -6,7 +6,14 @@
     "away": "d18b547a-3e55-4ead-a73a-6ee9af05c761",
     "date": "2024-06-14",
     "group": "Group A",
-    "stadium_id": "3db1375b-a28f-4908-9878-ec0fe5a5587f"
+    "stadium_id": {
+      "id": "3db1375b-a28f-4908-9878-ec0fe5a5587f",
+      "name": "Estadio Rhein Energie",
+      "city": "Colonia",
+      "capacity_general": 374,
+      "capacity_vip": 424,
+      "restaurant": ""
+    }
   },
   {
     "id": "6cba820d-9062-4644-a8be-7bbe2eebb497",
@@ -15,7 +22,14 @@
     "away": "efc26f34-0d00-4fdb-a958-ccd8d0840a4b",
     "date": "2024-06-15",
     "group": "Group A",
-    "stadium_id": "3181b7d7-77cc-42a8-96c9-ab6c18e282ae"
+    "stadium_id": {
+      "id": "3181b7d7-77cc-42a8-96c9-ab6c18e282ae",
+      "name": "Volksparkstadion",
+      "city": "Hamburgo",
+      "capacity_general": 53,
+      "capacity_vip": 357,
+      "restaurant": ""
+    }
   },
   {
     "id": "1cc60753-36e3-4a3e-bbdd-cd482220588a",
@@ -24,7 +38,14 @@
     "away": "ef03f03e-872c-4bb4-bb95-203d8f072294",
     "date": "2024-06-15",
     "group": "Group B",
-    "stadium_id": "2eead114-7627-45c4-83ab-ee3d66a6c62f"
+    "stadium_id": {
+      "id": "2eead114-7627-45c4-83ab-ee3d66a6c62f",
+      "name": "Estadio Olímpico de Berlín",
+      "city": "Berlín",
+      "capacity_general": 133,
+      "capacity_vip": 319,
+      "restaurant": ""
+    }
   },
   {
     "id": "2854ec2a-0837-4611-baac-0101f23e692f",
@@ -33,7 +54,14 @@
     "away": "4feec068-cc48-4c57-bca0-d06e3ec242c2",
     "date": "2024-06-15",
     "group": "Group B",
-    "stadium_id": "92940c44-15af-44a9-9fd4-480d0d865e27"
+    "stadium_id": {
+      "id": "92940c44-15af-44a9-9fd4-480d0d865e27",
+      "name": "Veltins-Arena",
+      "city": "Gelsenkirchen",
+      "capacity_general": 735,
+      "capacity_vip": 253,
+      "restaurant": ""
+    }
   },
   {
     "id": "9764ec4b-c586-437a-a0b8-db4e7f07a7ab",
@@ -42,7 +70,14 @@
     "away": "0b01202a-4057-480b-856b-a1576d7572ba",
     "date": "2024-06-16",
     "group": "Group C",
-    "stadium_id": "53fa70dc-06c9-42a8-a4fd-9a02c0411704"
+    "stadium_id": {
+      "id": "53fa70dc-06c9-42a8-a4fd-9a02c0411704",
+      "name": "MHPArena",
+      "city": "Stuttgart",
+      "capacity_general": 885,
+      "capacity_vip": 418,
+      "restaurant": ""
+    }
   },
   {
     "id": "91bc26a0-a91c-4c7c-adc1-900872c3e1cf",
@@ -51,7 +86,14 @@
     "away": "83fd7deb-7d30-4a43-83e8-0d08aa9635e4",
     "date": "2024-06-16",
     "group": "Group C",
-    "stadium_id": "3181b7d7-77cc-42a8-96c9-ab6c18e282ae"
+    "stadium_id": {
+      "id": "3181b7d7-77cc-42a8-96c9-ab6c18e282ae",
+      "name": "Volksparkstadion",
+      "city": "Hamburgo",
+      "capacity_general": 53,
+      "capacity_vip": 357,
+      "restaurant": ""
+    }
   },
   {
     "id": "6de6634c-c25a-4bb6-ad35-da9525ae0417",
@@ -60,7 +102,14 @@
     "away": "03404239-f8f5-4c70-90bf-c13d8c52a0be",
     "date": "2024-06-16",
     "group": "Group D",
-    "stadium_id": "2eead114-7627-45c4-83ab-ee3d66a6c62f"
+    "stadium_id": {
+      "id": "2eead114-7627-45c4-83ab-ee3d66a6c62f",
+      "name": "Estadio Olímpico de Berlín",
+      "city": "Berlín",
+      "capacity_general": 133,
+      "capacity_vip": 319,
+      "restaurant": ""
+    }
   },
   {
     "id": "2fbcf67f-78b6-48a5-928f-5feb9073cd48",
@@ -69,7 +118,14 @@
     "away": "f37bc54f-939b-4f4d-aee8-dd3537436e3c",
     "date": "2024-06-17",
     "group": "Group D",
-    "stadium_id": "85bf8f3a-4bb8-413e-8bf6-d577178b1eb7"
+    "stadium_id": {
+      "id": "85bf8f3a-4bb8-413e-8bf6-d577178b1eb7",
+      "name": "Deutsche Bank Park",
+      "city": "Fráncfort del Meno",
+      "capacity_general": 222,
+      "capacity_vip": 24,
+      "restaurant": ""
+    }
   },
   {
     "id": "b3ba115c-a569-4ac8-b631-f63ee113b415",
@@ -78,7 +134,14 @@
     "away": "ddc0954e-815f-4cb9-b396-8ec0124894c5",
     "date": "2024-06-17",
     "group": "Group E",
-    "stadium_id": "ba2b4f33-1d5e-4f63-ae0d-e491a48f41d4"
+    "stadium_id": {
+      "id": "ba2b4f33-1d5e-4f63-ae0d-e491a48f41d4",
+      "name": "Signal Iduna Park",
+      "city": "Dortmund",
+      "capacity_general": 19,
+      "capacity_vip": 159,
+      "restaurant": ""
+    }
   },
   {
     "id": "52cf1b06-7500-4b09-957f-5b7999a746b3",
@@ -87,7 +150,14 @@
     "away": "a2a1e781-c159-4b47-a2f6-b62a543bb150",
     "date": "2024-06-17",
     "group": "Group E",
-    "stadium_id": "2ae81544-c13f-442f-b332-6887628e9d6a"
+    "stadium_id": {
+      "id": "2ae81544-c13f-442f-b332-6887628e9d6a",
+      "name": "Red Bull Arena",
+      "city": "Leipzig",
+      "capacity_general": 292,
+      "capacity_vip": 206,
+      "restaurant": ""
+    }
   },
   {
     "id": "7b37cb67-7d7b-4a48-b762-590c99f49208",
@@ -96,7 +166,14 @@
     "away": "b32c045d-8217-44d5-94be-a19beffbaefa",
     "date": "2024-06-18",
     "group": "Group F",
-    "stadium_id": "85bf8f3a-4bb8-413e-8bf6-d577178b1eb7"
+    "stadium_id": {
+      "id": "85bf8f3a-4bb8-413e-8bf6-d577178b1eb7",
+      "name": "Deutsche Bank Park",
+      "city": "Fráncfort del Meno",
+      "capacity_general": 222,
+      "capacity_vip": 24,
+      "restaurant": ""
+    }
   },
   {
     "id": "4b2470c6-5c6b-4588-ac5e-3a5f403ba49a",
@@ -105,7 +182,14 @@
     "away": "05feedec-06d4-4a90-b7cb-ed7de55d8ec2",
     "date": "2024-06-18",
     "group": "Group F",
-    "stadium_id": "2eead114-7627-45c4-83ab-ee3d66a6c62f"
+    "stadium_id": {
+      "id": "2eead114-7627-45c4-83ab-ee3d66a6c62f",
+      "name": "Estadio Olímpico de Berlín",
+      "city": "Berlín",
+      "capacity_general": 133,
+      "capacity_vip": 319,
+      "restaurant": ""
+    }
   },
   {
     "id": "51842b43-273e-4793-854a-7a5e090ebbe2",
@@ -114,7 +198,14 @@
     "away": "68005e74-10e2-410e-8d60-d88e6c0df198",
     "date": "2024-06-19",
     "group": "Group A",
-    "stadium_id": "2a3ea87b-3c46-4181-8409-56150ba3c962"
+    "stadium_id": {
+      "id": "2a3ea87b-3c46-4181-8409-56150ba3c962",
+      "name": "Merkur Spiel-Arena",
+      "city": "Düsseldorf",
+      "capacity_general": 768,
+      "capacity_vip": 169,
+      "restaurant": ""
+    }
   },
   {
     "id": "89e48e09-2bbd-440f-b059-e04ff5f384d9",
@@ -123,7 +214,14 @@
     "away": "efc26f34-0d00-4fdb-a958-ccd8d0840a4b",
     "date": "2024-06-19",
     "group": "Group A",
-    "stadium_id": "2ae81544-c13f-442f-b332-6887628e9d6a"
+    "stadium_id": {
+      "id": "2ae81544-c13f-442f-b332-6887628e9d6a",
+      "name": "Red Bull Arena",
+      "city": "Leipzig",
+      "capacity_general": 292,
+      "capacity_vip": 206,
+      "restaurant": ""
+    }
   },
   {
     "id": "3479a57e-8f6a-4a50-9b2a-6acfe78887c6",
@@ -132,7 +230,14 @@
     "away": "4feec068-cc48-4c57-bca0-d06e3ec242c2",
     "date": "2024-06-19",
     "group": "Group B",
-    "stadium_id": "92940c44-15af-44a9-9fd4-480d0d865e27"
+    "stadium_id": {
+      "id": "92940c44-15af-44a9-9fd4-480d0d865e27",
+      "name": "Veltins-Arena",
+      "city": "Gelsenkirchen",
+      "capacity_general": 735,
+      "capacity_vip": 253,
+      "restaurant": ""
+    }
   },
   {
     "id": "6cc7f8b0-cf4f-49ce-a0d2-c242b68674b4",
@@ -141,7 +246,14 @@
     "away": "eee64995-57ba-4261-be76-4faf9c808fd8",
     "date": "2024-06-20",
     "group": "Group B",
-    "stadium_id": "50542213-b8e8-400e-8353-4e3b3cfa8144"
+    "stadium_id": {
+      "id": "50542213-b8e8-400e-8353-4e3b3cfa8144",
+      "name": "Allianz Arena",
+      "city": "Munich",
+      "capacity_general": 937,
+      "capacity_vip": 411,
+      "restaurant": ""
+    }
   },
   {
     "id": "42a60f92-c325-4a61-822b-72e6ca8ddaea",
@@ -150,7 +262,14 @@
     "away": "e7ce4f61-c890-48a6-b5f7-a5cd59460c5a",
     "date": "2024-06-20",
     "group": "Group C",
-    "stadium_id": "53fa70dc-06c9-42a8-a4fd-9a02c0411704"
+    "stadium_id": {
+      "id": "53fa70dc-06c9-42a8-a4fd-9a02c0411704",
+      "name": "MHPArena",
+      "city": "Stuttgart",
+      "capacity_general": 885,
+      "capacity_vip": 418,
+      "restaurant": ""
+    }
   },
   {
     "id": "1422a18a-ebf0-4ffc-8624-eaed07e06a89",
@@ -159,7 +278,14 @@
     "away": "83fd7deb-7d30-4a43-83e8-0d08aa9635e4",
     "date": "2024-06-20",
     "group": "Group C",
-    "stadium_id": "53fa70dc-06c9-42a8-a4fd-9a02c0411704"
+    "stadium_id": {
+      "id": "53fa70dc-06c9-42a8-a4fd-9a02c0411704",
+      "name": "MHPArena",
+      "city": "Stuttgart",
+      "capacity_general": 885,
+      "capacity_vip": 418,
+      "restaurant": ""
+    }
   },
   {
     "id": "70ff1e1f-5665-494e-aaf7-f26afc069be6",
@@ -168,7 +294,14 @@
     "away": "adb63c2e-f2f9-4e83-b5cd-4c5f66133071",
     "date": "2024-06-21",
     "group": "Group D",
-    "stadium_id": "85bf8f3a-4bb8-413e-8bf6-d577178b1eb7"
+    "stadium_id": {
+      "id": "85bf8f3a-4bb8-413e-8bf6-d577178b1eb7",
+      "name": "Deutsche Bank Park",
+      "city": "Fráncfort del Meno",
+      "capacity_general": 222,
+      "capacity_vip": 24,
+      "restaurant": ""
+    }
   },
   {
     "id": "c42ae354-601c-4208-8670-73c7859084d1",
@@ -177,7 +310,14 @@
     "away": "f37bc54f-939b-4f4d-aee8-dd3537436e3c",
     "date": "2024-06-21",
     "group": "Group D",
-    "stadium_id": "ba2b4f33-1d5e-4f63-ae0d-e491a48f41d4"
+    "stadium_id": {
+      "id": "ba2b4f33-1d5e-4f63-ae0d-e491a48f41d4",
+      "name": "Signal Iduna Park",
+      "city": "Dortmund",
+      "capacity_general": 19,
+      "capacity_vip": 159,
+      "restaurant": ""
+    }
   },
   {
     "id": "ab5cbb55-b91b-460c-b5f4-45ca8ef9e033",
@@ -186,7 +326,14 @@
     "away": "ddc0954e-815f-4cb9-b396-8ec0124894c5",
     "date": "2024-06-21",
     "group": "Group E",
-    "stadium_id": "85bf8f3a-4bb8-413e-8bf6-d577178b1eb7"
+    "stadium_id": {
+      "id": "85bf8f3a-4bb8-413e-8bf6-d577178b1eb7",
+      "name": "Deutsche Bank Park",
+      "city": "Fráncfort del Meno",
+      "capacity_general": 222,
+      "capacity_vip": 24,
+      "restaurant": ""
+    }
   },
   {
     "id": "15b30b11-8714-4e5f-b142-d4084b88aa92",
@@ -195,7 +342,14 @@
     "away": "ee32c6a4-8709-466a-8c34-e6ea6eb765e0",
     "date": "2024-06-22",
     "group": "Group E",
-    "stadium_id": "2eead114-7627-45c4-83ab-ee3d66a6c62f"
+    "stadium_id": {
+      "id": "2eead114-7627-45c4-83ab-ee3d66a6c62f",
+      "name": "Estadio Olímpico de Berlín",
+      "city": "Berlín",
+      "capacity_general": 133,
+      "capacity_vip": 319,
+      "restaurant": ""
+    }
   },
   {
     "id": "cabaac15-4c29-4ce0-882f-fb38d9904212",
@@ -204,7 +358,14 @@
     "away": "05feedec-06d4-4a90-b7cb-ed7de55d8ec2",
     "date": "2024-06-22",
     "group": "Group F",
-    "stadium_id": "85bf8f3a-4bb8-413e-8bf6-d577178b1eb7"
+    "stadium_id": {
+      "id": "85bf8f3a-4bb8-413e-8bf6-d577178b1eb7",
+      "name": "Deutsche Bank Park",
+      "city": "Fráncfort del Meno",
+      "capacity_general": 222,
+      "capacity_vip": 24,
+      "restaurant": ""
+    }
   },
   {
     "id": "2179e0ba-05b4-4ec4-b6a7-c369ad4ab681",
@@ -213,7 +374,14 @@
     "away": "547fc83b-b29d-4480-9ac5-f7cfeb3c02d2",
     "date": "2024-06-22",
     "group": "Group F",
-    "stadium_id": "2a3ea87b-3c46-4181-8409-56150ba3c962"
+    "stadium_id": {
+      "id": "2a3ea87b-3c46-4181-8409-56150ba3c962",
+      "name": "Merkur Spiel-Arena",
+      "city": "Düsseldorf",
+      "capacity_general": 768,
+      "capacity_vip": 169,
+      "restaurant": ""
+    }
   },
   {
     "id": "1f01ca84-df45-4aaa-bfe6-1083e609ab64",
@@ -222,7 +390,14 @@
     "away": "31c88261-1efd-444e-95ac-b7c1cd034bfd",
     "date": "2024-06-23",
     "group": "Group A",
-    "stadium_id": "92940c44-15af-44a9-9fd4-480d0d865e27"
+    "stadium_id": {
+      "id": "92940c44-15af-44a9-9fd4-480d0d865e27",
+      "name": "Veltins-Arena",
+      "city": "Gelsenkirchen",
+      "capacity_general": 735,
+      "capacity_vip": 253,
+      "restaurant": ""
+    }
   },
   {
     "id": "3c82ad8d-97e3-4eaf-b4fa-edf7afd623fc",
@@ -231,7 +406,14 @@
     "away": "68005e74-10e2-410e-8d60-d88e6c0df198",
     "date": "2024-06-23",
     "group": "Group A",
-    "stadium_id": "2ae81544-c13f-442f-b332-6887628e9d6a"
+    "stadium_id": {
+      "id": "2ae81544-c13f-442f-b332-6887628e9d6a",
+      "name": "Red Bull Arena",
+      "city": "Leipzig",
+      "capacity_general": 292,
+      "capacity_vip": 206,
+      "restaurant": ""
+    }
   },
   {
     "id": "bc4bdbbd-5260-4a3f-9bac-5e190f762527",
@@ -240,7 +422,14 @@
     "away": "0015bd66-71ce-4869-9d9b-be8b12914dcd",
     "date": "2024-06-24",
     "group": "Group B",
-    "stadium_id": "2eead114-7627-45c4-83ab-ee3d66a6c62f"
+    "stadium_id": {
+      "id": "2eead114-7627-45c4-83ab-ee3d66a6c62f",
+      "name": "Estadio Olímpico de Berlín",
+      "city": "Berlín",
+      "capacity_general": 133,
+      "capacity_vip": 319,
+      "restaurant": ""
+    }
   },
   {
     "id": "6072eaf8-3aed-4629-a8ce-13d2b6a5ac91",
@@ -249,7 +438,14 @@
     "away": "eee64995-57ba-4261-be76-4faf9c808fd8",
     "date": "2024-06-24",
     "group": "Group B",
-    "stadium_id": "92940c44-15af-44a9-9fd4-480d0d865e27"
+    "stadium_id": {
+      "id": "92940c44-15af-44a9-9fd4-480d0d865e27",
+      "name": "Veltins-Arena",
+      "city": "Gelsenkirchen",
+      "capacity_general": 735,
+      "capacity_vip": 253,
+      "restaurant": ""
+    }
   },
   {
     "id": "87a5fa89-4547-48be-a71c-7b6ed9383eb0",
@@ -258,7 +454,14 @@
     "away": "d835ce6e-600a-4e7f-8393-45c1866ae50d",
     "date": "2024-06-25",
     "group": "Group C",
-    "stadium_id": "2eead114-7627-45c4-83ab-ee3d66a6c62f"
+    "stadium_id": {
+      "id": "2eead114-7627-45c4-83ab-ee3d66a6c62f",
+      "name": "Estadio Olímpico de Berlín",
+      "city": "Berlín",
+      "capacity_general": 133,
+      "capacity_vip": 319,
+      "restaurant": ""
+    }
   },
   {
     "id": "efa89435-8ae0-411a-9b07-bcb70c75d5d1",
@@ -267,7 +470,14 @@
     "away": "e7ce4f61-c890-48a6-b5f7-a5cd59460c5a",
     "date": "2024-06-25",
     "group": "Group C",
-    "stadium_id": "50542213-b8e8-400e-8353-4e3b3cfa8144"
+    "stadium_id": {
+      "id": "50542213-b8e8-400e-8353-4e3b3cfa8144",
+      "name": "Allianz Arena",
+      "city": "Munich",
+      "capacity_general": 937,
+      "capacity_vip": 411,
+      "restaurant": ""
+    }
   },
   {
     "id": "cfbc77f6-5087-438e-9d3c-9a5218ef8f4d",
@@ -276,7 +486,14 @@
     "away": "adb63c2e-f2f9-4e83-b5cd-4c5f66133071",
     "date": "2024-06-25",
     "group": "Group D",
-    "stadium_id": "53fa70dc-06c9-42a8-a4fd-9a02c0411704"
+    "stadium_id": {
+      "id": "53fa70dc-06c9-42a8-a4fd-9a02c0411704",
+      "name": "MHPArena",
+      "city": "Stuttgart",
+      "capacity_general": 885,
+      "capacity_vip": 418,
+      "restaurant": ""
+    }
   },
   {
     "id": "3910059e-03e1-417d-839e-0ec9d1308be4",
@@ -285,7 +502,14 @@
     "away": "4c5da816-f99a-4e38-bb5f-5230952b1d30",
     "date": "2024-06-25",
     "group": "Group D",
-    "stadium_id": "3181b7d7-77cc-42a8-96c9-ab6c18e282ae"
+    "stadium_id": {
+      "id": "3181b7d7-77cc-42a8-96c9-ab6c18e282ae",
+      "name": "Volksparkstadion",
+      "city": "Hamburgo",
+      "capacity_general": 53,
+      "capacity_vip": 357,
+      "restaurant": ""
+    }
   },
   {
     "id": "b4008016-ceed-406f-8693-4fbc4c315dfb",
@@ -294,7 +518,14 @@
     "away": "ee32c6a4-8709-466a-8c34-e6ea6eb765e0",
     "date": "2024-06-26",
     "group": "Group E",
-    "stadium_id": "50542213-b8e8-400e-8353-4e3b3cfa8144"
+    "stadium_id": {
+      "id": "50542213-b8e8-400e-8353-4e3b3cfa8144",
+      "name": "Allianz Arena",
+      "city": "Munich",
+      "capacity_general": 937,
+      "capacity_vip": 411,
+      "restaurant": ""
+    }
   },
   {
     "id": "308f9bff-1692-4992-8bd6-0ef03e95f0e3",
@@ -303,7 +534,14 @@
     "away": "07b741db-b268-45a7-86f0-c5111632e21d",
     "date": "2024-06-26",
     "group": "Group E",
-    "stadium_id": "3181b7d7-77cc-42a8-96c9-ab6c18e282ae"
+    "stadium_id": {
+      "id": "3181b7d7-77cc-42a8-96c9-ab6c18e282ae",
+      "name": "Volksparkstadion",
+      "city": "Hamburgo",
+      "capacity_general": 53,
+      "capacity_vip": 357,
+      "restaurant": ""
+    }
   },
   {
     "id": "40ceee04-b1b9-4846-ba1a-b4afa2df7111",
@@ -312,7 +550,14 @@
     "away": "547fc83b-b29d-4480-9ac5-f7cfeb3c02d2",
     "date": "2024-06-26",
     "group": "Group F",
-    "stadium_id": "2ae81544-c13f-442f-b332-6887628e9d6a"
+    "stadium_id": {
+      "id": "2ae81544-c13f-442f-b332-6887628e9d6a",
+      "name": "Red Bull Arena",
+      "city": "Leipzig",
+      "capacity_general": 292,
+      "capacity_vip": 206,
+      "restaurant": ""
+    }
   },
   {
     "id": "abd2ab53-d4e9-4dc2-86d3-57082dfd1296",
@@ -321,6 +566,13 @@
     "away": "f3d792fb-e07d-46ed-a1d4-ca24a876fcbf",
     "date": "2024-06-26",
     "group": "Group F",
-    "stadium_id": "2ae81544-c13f-442f-b332-6887628e9d6a"
+    "stadium_id": {
+      "id": "2ae81544-c13f-442f-b332-6887628e9d6a",
+      "name": "Red Bull Arena",
+      "city": "Leipzig",
+      "capacity_general": 292,
+      "capacity_vip": 206,
+      "restaurant": ""
+    }
   }
 ]

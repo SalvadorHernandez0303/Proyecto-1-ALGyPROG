@@ -24,7 +24,7 @@ class Estadio(FileClassManager):
 
     def __str__(self):
         # Devuelve una representación en string del estadio
-        return f"Estadio: {self.nombre}\n - Ubicación: {self.ubicacion}\n - Capacidad: {self.capacidad}\n - Restaurantes: {self.restaurantes}"
+        return f"Estadio: {self.nombre}\n - Ubicación: {self.ubicacion}\n - Capacidad: {self.capacidad_general} General y {self.capacidad_vip} VIP\n - Restaurantes: {self.restaurantes}"
     
     def to_dict(self):
         return {

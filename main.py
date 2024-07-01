@@ -64,6 +64,12 @@ def __main__():
             estadio.Actualizar_archivo("Storage/estadios.txt", item)
             
     for item in lista_partidos:
+        
+        for item_estadio in euro2024_page.estadio:
+            if item_estadio.id == item.estadio:
+                item.estadio = item_estadio.to_dict()
+                break
+        
         euro2024_page.partido.append(item)
         
         if isinstance(item, Partido):

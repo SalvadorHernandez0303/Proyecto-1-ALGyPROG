@@ -241,13 +241,8 @@ class Euro_App:
                                 if visitante.id == item.visitante:
                                     visitante = visitante.nombre
                                     break
-                                
-                            for estadio in eurocopa_2024.estadio:
-                                if estadio.id == item.estadio:
-                                    estadio = estadio.nombre
-                                    break
                             
-                            print(f"{local} vs. {visitante} - Lugar: {estadio} - Fecha: {item.fecha}")
+                            print(f"{local} vs. {visitante} - Lugar: {item.estadio['name']} - Fecha: {item.fecha}")
                             
                     print("")
                 if busqueda == 2:
@@ -259,12 +254,7 @@ class Euro_App:
                             break
                     
                     for item in eurocopa_2024.partido:
-                        if estadio_busqueda == item.estadio:
-                            for estadio in eurocopa_2024.estadio:
-                                if estadio_busqueda == estadio.id:
-                                    estadio = estadio.nombre
-                                    break
-                                
+                        if estadio_busqueda == item.estadio['id']:
                             for local in eurocopa_2024.equipo:
                                 if local.id == item.local:
                                     local = local.nombre
@@ -275,7 +265,7 @@ class Euro_App:
                                     visitante = visitante.nombre
                                     break
                                 
-                            print(f"{local} vs. {visitante} - Lugar: {estadio} - Fecha: {item.fecha}")
+                            print(f"{local} vs. {visitante} - Lugar: {item.estadio['name']} - Fecha: {item.fecha}")
                     print("")
                 if busqueda == 3:
                     fecha_busqueda = input("Indique la fecha a buscar (YYYY-MM-DD): ")
@@ -283,11 +273,6 @@ class Euro_App:
                     
                     for item in eurocopa_2024.partido:
                         if fecha_busqueda == item.fecha:
-                            for estadio in eurocopa_2024.estadio:
-                                if estadio.id == item.estadio:
-                                    estadio = estadio.nombre
-                                    break
-                                
                             for local in eurocopa_2024.equipo:
                                 if local.id == item.local:
                                     local = local.nombre
@@ -298,7 +283,7 @@ class Euro_App:
                                     visitante = visitante.nombre
                                     break
                                 
-                            print(f"{local} vs. {visitante} - Lugar: {estadio} - Fecha: {item.fecha}")
+                            print(f"{local} vs. {visitante} - Lugar: {item.estadio['name']} - Fecha: {item.fecha}")
                     print("")
                 if busqueda == 0 or busqueda == "":
                     seguir_en_menu = False
@@ -323,25 +308,45 @@ class Euro_App:
                     Cedula_registrada = True
                     break
             
-            if Cedula_registrada:      
-                print("Seleccione un partido:")
-                # Partido()
-                opciones_partidos = eurocopa_2024.obtener_menu_seleccion("DATOS_PARTIDOS:\n", "Partido")
-                partido_identificador = []
-                indice = 0
-                for opciones in opciones_partidos:
-                    indice += 1
-                    partido_id, partido_numero, partido_local, partido_visitante, partido_fecha = opciones
-                    partido_identificador.append((indice, partido_id))
-                    partido_hora = eurocopa_2024.obtener_hora_partido(partido_numero)
-                    print(f"{indice}. {partido_local} vs. {partido_visitante} - Fecha: {partido_fecha} {partido_hora}")
+            if Cedula_registrada:
                 
-                partido_seleccionado = int(input("\nSeleccione el número del partido que desea comprar: "))
-                for pos, id in partido_identificador:
-                    if pos == partido_seleccionado:
-                        partido_seleccionado = id
+                eurocopa_2024.partido.sort(key = lambda x: x.numero)
+                
+                for item in eurocopa_2024.partido:
+                    for local in eurocopa_2024.equipo:
+                        if local.id == item.local:
+                            local_nombre = local.nombre
+                    for visitante in eurocopa_2024.equipo:
+                        if visitante.id == item.visitante:
+                            visitante_nombre = visitante.nombre
+                    for estadio in eurocopa_2024.estadio:
+                        if estadio.id == item.estadio:
+                            estadio_nombre = estadio.nombre
+                    
+                    print(f"{item.numero}. {local_nombre} vs. {visitante_nombre} - {estadio_nombre} - Fecha: {item.fecha}.")
+                
+                while True:
+                    opcion_partido = input("Seleccione un partido: ")
+                    if opcion_partido.isdigit():
+                        # Si la opción es un número, se sale del ciclo
+                        opcion_partido = int(opcion_partido)
+                        break
+                    else:
+                        print("La opción debe ser un número. Intente de nuevo.")
+                
+                partido_existe = False
+                partido_seleccionado = None
+                
+                for item in eurocopa_2024.partido:
+                    if item.numero == opcion_partido:
+                        partido_existe = True
                         
-                # print(partido_seleccionado)
+                        break
+                    
+                if partido_existe:
+                    pass
+                
+                print("")
             else:
                 print("La cédula no está registrada. Por favor, registrese en el sistema usando la opción 1 del menú.\n")
         else:
