@@ -69,6 +69,14 @@ def __main__():
             if item_estadio.id == item.estadio:
                 item.estadio = item_estadio.to_dict()
                 break
+            
+        for item_local in euro2024_page.equipo:
+            if item_local.id == item.local:
+                item.local = item_local.to_dict()
+                
+        for item_visitante in euro2024_page.equipo:
+            if item_visitante.id == item.visitante:
+                item.visitante = item_visitante.to_dict()       
         
         euro2024_page.partido.append(item)
         

@@ -231,18 +231,8 @@ class Euro_App:
                             break
                         
                     for item in eurocopa_2024.partido:
-                        if pais == item.local or pais == item.visitante:
-                            for local in eurocopa_2024.equipo:
-                                if local.id == item.local:
-                                    local = local.nombre
-                                    break
-                                
-                            for visitante in eurocopa_2024.equipo:
-                                if visitante.id == item.visitante:
-                                    visitante = visitante.nombre
-                                    break
-                            
-                            print(f"{local} vs. {visitante} - Lugar: {item.estadio['name']} - Fecha: {item.fecha}")
+                        if pais == item.local['id'] or pais == item.visitante['id']:
+                            print(f"{item.local['name']} vs. {item.visitante['name']} - Lugar: {item.estadio['name']} - Fecha: {item.fecha}")
                             
                     print("")
                 if busqueda == 2:
@@ -255,17 +245,7 @@ class Euro_App:
                     
                     for item in eurocopa_2024.partido:
                         if estadio_busqueda == item.estadio['id']:
-                            for local in eurocopa_2024.equipo:
-                                if local.id == item.local:
-                                    local = local.nombre
-                                    break
-                                
-                            for visitante in eurocopa_2024.equipo:
-                                if visitante.id == item.visitante:
-                                    visitante = visitante.nombre
-                                    break
-                                
-                            print(f"{local} vs. {visitante} - Lugar: {item.estadio['name']} - Fecha: {item.fecha}")
+                            print(f"{item.local['name']} vs. {item.visitante['name']} - Lugar: {item.estadio['name']} - Fecha: {item.fecha}")
                     print("")
                 if busqueda == 3:
                     fecha_busqueda = input("Indique la fecha a buscar (YYYY-MM-DD): ")
@@ -273,17 +253,7 @@ class Euro_App:
                     
                     for item in eurocopa_2024.partido:
                         if fecha_busqueda == item.fecha:
-                            for local in eurocopa_2024.equipo:
-                                if local.id == item.local:
-                                    local = local.nombre
-                                    break
-                                
-                            for visitante in eurocopa_2024.equipo:
-                                if visitante.id == item.visitante:
-                                    visitante = visitante.nombre
-                                    break
-                                
-                            print(f"{local} vs. {visitante} - Lugar: {item.estadio['name']} - Fecha: {item.fecha}")
+                            print(f"{item.local['name']} vs. {item.visitante['name']} - Lugar: {item.estadio['name']} - Fecha: {item.fecha}")
                     print("")
                 if busqueda == 0 or busqueda == "":
                     seguir_en_menu = False
@@ -335,16 +305,30 @@ class Euro_App:
                         print("La opción debe ser un número. Intente de nuevo.")
                 
                 partido_existe = False
-                partido_seleccionado = None
                 
                 for item in eurocopa_2024.partido:
                     if item.numero == opcion_partido:
                         partido_existe = True
-                        
                         break
                     
                 if partido_existe:
-                    pass
+                    print("Que desea comprar:")
+                    print("1. Entrada General")
+                    print("2. Entrada VIP")
+                    
+                    while True:
+                        opcion_entrada = input("Seleccione una opción: ")
+                        if opcion_entrada.isdigit():
+                            # Si la opción es un número, se sale del ciclo
+                            opcion_entrada = int(opcion_entrada)
+                            break
+                        else:
+                            print("La opción debe ser un número. Intente de nuevo.")
+                            
+                    if opcion_entrada == 1:
+                        pass
+                    if opcion_entrada == 2:
+                        pass
                 
                 print("")
             else:
