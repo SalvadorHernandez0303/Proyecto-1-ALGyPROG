@@ -96,8 +96,8 @@ class Estadio(FileClassManager):
                                 estadio_restaurante = ""
                                 
                                 # Se agrega el partido a la lista de datos
-                                equipo_obj = Estadio(estadio_id, estadio_nombre, estadio_ubicacion, estadio_general, estadio_vip, estadio_restaurante)
-                                objecto_menu_data.append(equipo_obj)
+                                estadio_obj = Estadio(estadio_id, estadio_nombre, estadio_ubicacion, estadio_general, estadio_vip, estadio_restaurante)
+                                objecto_menu_data.append(estadio_obj)
                             else:
                                 # Se agrega el id del objeto a la lista de datos    
                                 objecto_menu_data.append(data_dict["id"])

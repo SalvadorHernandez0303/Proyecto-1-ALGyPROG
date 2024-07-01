@@ -174,44 +174,136 @@ class Euro_App:
                     print("La edad debe ser un número. Por favor, intente de nuevo.")
             # Se crea un objeto Cliente con los datos del cliente
             
-            cliente_nuevo = Cliente(nombre, cedula, edad)
-            eurocopa_2024.cliente.append(cliente_nuevo)
+            Cedula_registrada = False
             
-            cliente_nuevo_json = json.dumps({
-                "nombre": cliente_nuevo.nombre,
-                "cedula": cliente_nuevo.cedula,
-                "edad": cliente_nuevo.edad
-            })
-            
-            cliente_nuevo.Actualizar_archivo("Storage/clientes.txt", str(cliente_nuevo_json))
-            
-            print("Se ha registrado exitosamente en el sistema")
-            print("")
+            for item in eurocopa_2024.cliente:
+                if cedula == item.cedula:
+                    Cedula_registrada = True
+                    break
+                
+            if not Cedula_registrada:
+                cliente_nuevo = Cliente(nombre, cedula, edad)
+                eurocopa_2024.cliente.append(cliente_nuevo)
+                
+                cliente_nuevo_json = json.dumps({
+                    "nombre": cliente_nuevo.nombre,
+                    "cedula": cliente_nuevo.cedula,
+                    "edad": cliente_nuevo.edad
+                })
+                
+                cliente_nuevo.Actualizar_archivo("Storage/clientes.txt", str(cliente_nuevo_json))
+                
+                print("Se ha registrado exitosamente en el sistema")
+                print("")
+            else:
+                print("Ya usted está registrado en el sistema. Por favor proceda con la compra de los boletos")
+                print("")
         else:
             raise TypeError("Clase incorrecta entregada. Por favor, revisar el código")
     
-    def menu_opcion_dos_ges_par_asis(self):
+    def menu_opcion_dos_ges_par_asis(self, eurocopa_2024):
         """
-    Muestra el menú de consultas de partidos y estadios.
+        Muestra el menú de consultas de partidos y estadios.
         """
-        print("1. Buscar partidos por un país específico.")
-        print("2. Buscar partidos en un estadio en específico.")
-        print("3. Buscar partidos en una fecha específica.")
-        while True:
-            busqueda = input("Por favor, seleccione una opción: ")
-            print("")
-            if busqueda.isdigit():
-                busqueda = int(busqueda)
-                break
-            else:
-                print("Su opción es inválida. Por favor, intente de nuevo.")
-                
-        if busqueda == 1:
-            pass
-        if busqueda == 2:
-            pass
-        if busqueda == 3:
-            pass
+        if isinstance(eurocopa_2024, Euro_App):
+            seguir_en_menu = True
+            while seguir_en_menu:
+                print("1. Buscar partidos por un país específico.")
+                print("2. Buscar partidos en un estadio en específico.")
+                print("3. Buscar partidos en una fecha específica.")
+                print("0. Regresar al menú anterior.")
+                print("")
+                while True:
+                    busqueda = input("Por favor, seleccione una opción: ")
+                    print("")
+                    if busqueda.isdigit():
+                        busqueda = int(busqueda)
+                        break
+                    else:
+                        print("Su opción es inválida. Por favor, intente de nuevo.")
+                        
+                if busqueda == 1:
+                    pais = input("Indique el pais a buscar: ")
+                    print("")
+                    for item in eurocopa_2024.equipo:
+                        if pais == item.nombre:
+                            pais = item.id
+                            break
+                        
+                    for item in eurocopa_2024.partido:
+                        if pais == item.local or pais == item.visitante:
+                            for local in eurocopa_2024.equipo:
+                                if local.id == item.local:
+                                    local = local.nombre
+                                    break
+                                
+                            for visitante in eurocopa_2024.equipo:
+                                if visitante.id == item.visitante:
+                                    visitante = visitante.nombre
+                                    break
+                                
+                            for estadio in eurocopa_2024.estadio:
+                                if estadio.id == item.estadio:
+                                    estadio = estadio.nombre
+                                    break
+                            
+                            print(f"{local} vs. {visitante} - Lugar: {estadio} - Fecha: {item.fecha}")
+                            
+                    print("")
+                if busqueda == 2:
+                    estadio_busqueda = input("Indique el estadio a buscar: ")
+                    print("")
+                    for item in eurocopa_2024.estadio:
+                        if estadio_busqueda == item.nombre:
+                            estadio_busqueda = item.id
+                            break
+                    
+                    for item in eurocopa_2024.partido:
+                        if estadio_busqueda == item.estadio:
+                            for estadio in eurocopa_2024.estadio:
+                                if estadio_busqueda == estadio.id:
+                                    estadio = estadio.nombre
+                                    break
+                                
+                            for local in eurocopa_2024.equipo:
+                                if local.id == item.local:
+                                    local = local.nombre
+                                    break
+                                
+                            for visitante in eurocopa_2024.equipo:
+                                if visitante.id == item.visitante:
+                                    visitante = visitante.nombre
+                                    break
+                                
+                            print(f"{local} vs. {visitante} - Lugar: {estadio} - Fecha: {item.fecha}")
+                    print("")
+                if busqueda == 3:
+                    fecha_busqueda = input("Indique la fecha a buscar (YYYY-MM-DD): ")
+                    print("")
+                    
+                    for item in eurocopa_2024.partido:
+                        if fecha_busqueda == item.fecha:
+                            for estadio in eurocopa_2024.estadio:
+                                if estadio.id == item.estadio:
+                                    estadio = estadio.nombre
+                                    break
+                                
+                            for local in eurocopa_2024.equipo:
+                                if local.id == item.local:
+                                    local = local.nombre
+                                    break
+                                
+                            for visitante in eurocopa_2024.equipo:
+                                if visitante.id == item.visitante:
+                                    visitante = visitante.nombre
+                                    break
+                                
+                            print(f"{local} vs. {visitante} - Lugar: {estadio} - Fecha: {item.fecha}")
+                    print("")
+                if busqueda == 0 or busqueda == "":
+                    seguir_en_menu = False
+        else:
+            raise TypeError("Clase incorrecta entregada. Por favor, revisar el código")
     
     def menu_opcion_tres_comp_tkt(self, eurocopa_2024):
         if isinstance(eurocopa_2024, Euro_App):
@@ -257,7 +349,8 @@ class Euro_App:
 
 def eurocopa_menu(eurocopa_2024: Euro_App):
 
-    while True:
+    seguir_en_menu = True
+    while seguir_en_menu:
         print("Bienvenido a la Eurocopa 2024!")
         print("Menú de opciones:")
         print("1. Registro de cliente.") # Mitad de gestion de venta de entrada
@@ -266,6 +359,7 @@ def eurocopa_menu(eurocopa_2024: Euro_App):
         print("4. Compra en el restaurante (Solo VIP).") # Gestion restaurante/venta restaurante
         print("5. Registrar asistencia al partido.") # Gestion de asistencia de partido
         print("6. Reportes.") # Gestion de estadistica
+        print("0. Salir del sistema")
         
         while True:
             respuesta = input("Por favor, seleccione una opción: ")
@@ -279,7 +373,7 @@ def eurocopa_menu(eurocopa_2024: Euro_App):
         if respuesta == 1:
             eurocopa_2024.menu_opcion_uno_reg_cli(eurocopa_2024)
         elif respuesta == 2:
-            eurocopa_2024.menu_opcion_dos_ges_par_asis()
+            eurocopa_2024.menu_opcion_dos_ges_par_asis(eurocopa_2024)
         elif respuesta == 3:
             eurocopa_2024.menu_opcion_tres_comp_tkt(eurocopa_2024)
         elif respuesta == 4:
@@ -288,6 +382,8 @@ def eurocopa_menu(eurocopa_2024: Euro_App):
             pass
         elif respuesta == 6:
             pass
+        elif respuesta == 0:
+            seguir_en_menu = False
         else:
             print("Su opción es inválida. Por favor, intente de nuevo.")
             print("")
