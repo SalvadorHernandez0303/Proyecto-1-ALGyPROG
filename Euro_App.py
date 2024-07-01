@@ -356,6 +356,37 @@ class Euro_App:
                         
                     if opcion_entrada == 2:
                         print(f"Actualmente este partido cuenta con {partido_seleccionado.estadio['capacity_vip']} entradas VIP.")
+                        print("Ahora debe escoger un asiento para su boleto.") 
+                        while True:
+                            asiento = input(f"Por favor, escoja un numero entre el 1 y el {partido_seleccionado.estadio['capacity_vip']} para ubicarle su asiento: ")
+                            if asiento.isdigit():
+                                # Si la opción es un número, se sale del ciclo
+                                asiento = int(opcion_entrada)
+                                break
+                            else:
+                                print("La opción debe ser un número. Intente de nuevo.")
+                        if asiento > 0 and asiento <= int(partido_seleccionado.estadio['capacity_vip']):
+                            boleto_id = str(uuid.uuid4())
+                            boleto_nuevo = Ticket(boleto_id, cedula, partido_seleccionado, asiento, "VIP")
+                            
+                            eurocopa_2024.ticket.append(boleto_nuevo)
+                            
+                            if isinstance(boleto_nuevo.partido, Partido):
+                                boleto_nuevo.partido = boleto_nuevo.partido.to_dict()
+                            
+                            boleto_nuevo_json = json.dumps({
+                                "codigo_ticket": boleto_nuevo.codigo_ticket,
+                                "cedula_cliente": boleto_nuevo.cedula_cliente,
+                                "partido": boleto_nuevo.partido,
+                                "asiento": boleto_nuevo.asiento,
+                                "precio_base": boleto_nuevo.precio_base,
+                                "precio_descuento": boleto_nuevo.precio_descuento,
+                                "precio_mas_iva": boleto_nuevo.precio_mas_iva,
+                                "precio_total": boleto_nuevo.precio_total,
+                                "tipo": boleto_nuevo.tipo
+                            })
+                            
+                            boleto_nuevo.Actualizar_archivo("Storage/boletos.txt", str(boleto_nuevo_json))
                 
                 print("")
             else:
