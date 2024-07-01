@@ -1,0 +1,82 @@
+[
+  {
+    "id": "2eead114-7627-45c4-83ab-ee3d66a6c62f",
+    "name": "Estadio Olímpico de Berlín",
+    "city": "Berlín",
+    "capacity_general": 133,
+    "capacity_vip": 319,
+    "restaurant": ""
+  },
+  {
+    "id": "50542213-b8e8-400e-8353-4e3b3cfa8144",
+    "name": "Allianz Arena",
+    "city": "Munich",
+    "capacity_general": 937,
+    "capacity_vip": 411,
+    "restaurant": ""
+  },
+  {
+    "id": "ba2b4f33-1d5e-4f63-ae0d-e491a48f41d4",
+    "name": "Signal Iduna Park",
+    "city": "Dortmund",
+    "capacity_general": 19,
+    "capacity_vip": 159,
+    "restaurant": ""
+  },
+  {
+    "id": "53fa70dc-06c9-42a8-a4fd-9a02c0411704",
+    "name": "MHPArena",
+    "city": "Stuttgart",
+    "capacity_general": 885,
+    "capacity_vip": 418,
+    "restaurant": ""
+  },
+  {
+    "id": "92940c44-15af-44a9-9fd4-480d0d865e27",
+    "name": "Veltins-Arena",
+    "city": "Gelsenkirchen",
+    "capacity_general": 735,
+    "capacity_vip": 253,
+    "restaurant": ""
+  },
+  {
+    "id": "3181b7d7-77cc-42a8-96c9-ab6c18e282ae",
+    "name": "Volksparkstadion",
+    "city": "Hamburgo",
+    "capacity_general": 53,
+    "capacity_vip": 357,
+    "restaurant": ""
+  },
+  {
+    "id": "85bf8f3a-4bb8-413e-8bf6-d577178b1eb7",
+    "name": "Deutsche Bank Park",
+    "city": "Fráncfort del Meno",
+    "capacity_general": 222,
+    "capacity_vip": 24,
+    "restaurant": ""
+  },
+  {
+    "id": "3db1375b-a28f-4908-9878-ec0fe5a5587f",
+    "name": "Estadio Rhein Energie",
+    "city": "Colonia",
+    "capacity_general": 374,
+    "capacity_vip": 424,
+    "restaurant": ""
+  },
+  {
+    "id": "2ae81544-c13f-442f-b332-6887628e9d6a",
+    "name": "Red Bull Arena",
+    "city": "Leipzig",
+    "capacity_general": 292,
+    "capacity_vip": 206,
+    "restaurant": ""
+  },
+  {
+    "id": "2a3ea87b-3c46-4181-8409-56150ba3c962",
+    "name": "Merkur Spiel-Arena",
+    "city": "Düsseldorf",
+    "capacity_general": 768,
+    "capacity_vip": 169,
+    "restaurant": ""
+  }
+]

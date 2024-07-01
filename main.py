@@ -2,19 +2,25 @@ from Euro_App import Euro_App
 from Interfaces.FileApiManager import FileApiManager
 from Cliente import *
 from Ticket import *
-from Partido import Partido
+from Equipos import *
+from Estadios import *
+from Partido import *
 from Euro_App import eurocopa_menu
 
 #Codigo principal
 def __main__():
     cliente = Cliente()
     boleto = Ticket()
+    equipo = Equipo()
+    estadio = Estadio()
     partido = Partido()
     apiManager = FileApiManager()
     
     cliente.Crear_archivo("Storage/clientes.txt")
     boleto.Crear_archivo("Storage/boletos.txt")
-    partido.Crear_archivo("Storage/partidos.txt")
+    equipo.Crear_archivo("Storage/equipos.txt")
+    estadio.Crear_archivo("Storage/estadios.txt")
+    # partido.Crear_archivo("Storage/partidos.txt")
     
     urls = [
         ("https://raw.githubusercontent.com/Algoritmos-y-Programacion/api-proyecto/main/teams.json", "datos_equipos"),
@@ -28,8 +34,32 @@ def __main__():
     data = apiManager.Mapear_datos(urls, apiManager)
     apiManager.Actualizar_archivo(FilePath_carga_inicial, data)
     
+    lista_equipos = equipo.Mapear_json_a_clase("DATOS_EQUIPOS:\n", "Equipo")
+    lista_estadios = estadio.Mapear_json_a_clase("ESTADIOS:\n", "Estadio")
+    
     euro2024_page = Euro_App()
     euro2024_page.cliente = cliente.Leer_Archivo("Storage/clientes.txt", cliente.Crear_cliente)
+    
+    equipos_existentes = equipo.Leer_registros_existentes("Storage/equipos.txt")
+    estadios_existentes = estadio.Leer_registros_existentes("Storage/estadios.txt")
+    
+    for item in lista_equipos:
+        euro2024_page.equipo.append(item)
+        
+        if isinstance(item, Equipo):
+            item = item.to_dict()
+
+        if not equipo.Registro_existe(equipos_existentes, item):
+            equipo.Actualizar_archivo("Storage/equipos.txt", item)
+    
+    for item in lista_estadios:
+        euro2024_page.estadio.append(item)
+        
+        if isinstance(item, Estadio):
+            item = item.to_dict()
+
+        if not estadio.Registro_existe(estadios_existentes, item):
+            estadio.Actualizar_archivo("Storage/estadios.txt", item)
     
     eurocopa_menu(euro2024_page)
     

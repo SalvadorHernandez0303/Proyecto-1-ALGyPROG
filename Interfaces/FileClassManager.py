@@ -32,7 +32,7 @@ class FileClassManager(FileManager):
             data.append(content)
             
             f.seek(0)
-            json.dump(data, f, indent=2)
+            json.dump(data, f, ensure_ascii=False, indent=2)
             f.truncate()
     
     def Archivo_validar_vacio(self, filepath):
@@ -40,3 +40,17 @@ class FileClassManager(FileManager):
     
     def Leer_archivo_para_actualizacion(self, file):
         return json.load(file)
+    
+    def Leer_registros_existentes(self, filepath):
+        try:
+            with open(filepath, "r", encoding="utf-8") as f:
+               data = json.load(f) 
+        except (json.JSONDecodeError, FileNotFoundError):
+            data = []
+        return data
+    
+    def Registro_existe(self, registros, item):
+        for registro in registros:
+            if registro["id"] == item["id"]:
+                return True
+        return False

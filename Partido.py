@@ -1,7 +1,7 @@
 from Interfaces.FileClassManager import FileClassManager
 
 class Partido(FileClassManager):
-    def __init__(self, id, numero, grupo, estadio, fecha, local, visitante):
+    def __init__(self, id = 0, numero = 0, local = None, visitante = None, fecha = "", grupo = "", estadio = ""):
         ''' 
         Inicializa la clase Partido.
         
@@ -18,15 +18,26 @@ class Partido(FileClassManager):
         '''
         self.id = id
         self.numero = numero
-        self.grupo = grupo
-        self.estadio = estadio
-        self.fecha = fecha
         self.local = local
         self.visitante = visitante
+        self.fecha = fecha
+        self.grupo = grupo
+        self.estadio = estadio
     
     def __str__(self):
         #Devuelve un string que muestra la informacion de forma legible
         return f"Partido {self.id}: {self.local} vs {self.visitante}\n - Estadio: {self.estadio}\n - Fecha: {self.fecha}\n - Grupo: {self.grupo}"
+    
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "number": self.numero,
+            "home": self.local,
+            "away": self.visitante,
+            "date": self.fecha,
+            "group": self.grupo,
+            "stadium_id": self.estadio
+        }
     
     def Crear_cliente(self, registro):
         id = registro["id"]
