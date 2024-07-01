@@ -10,17 +10,17 @@ from Euro_App import eurocopa_menu
 #Codigo principal
 def __main__():
     cliente = Cliente()
-    boleto = Ticket()
     equipo = Equipo()
     estadio = Estadio()
     partido = Partido()
+    boleto = Ticket()
     apiManager = FileApiManager()
     
     cliente.Crear_archivo("Storage/clientes.txt")
-    boleto.Crear_archivo("Storage/boletos.txt")
     equipo.Crear_archivo("Storage/equipos.txt")
     estadio.Crear_archivo("Storage/estadios.txt")
     partido.Crear_archivo("Storage/partidos.txt")
+    boleto.Crear_archivo("Storage/boletos.txt")
     
     urls = [
         ("https://raw.githubusercontent.com/Algoritmos-y-Programacion/api-proyecto/main/teams.json", "datos_equipos"),
@@ -34,12 +34,18 @@ def __main__():
     data = apiManager.Mapear_datos(urls, apiManager)
     apiManager.Actualizar_archivo(FilePath_carga_inicial, data)
     
+    euro2024_page = Euro_App()
+    euro2024_page.cliente = cliente.Leer_Archivo("Storage/clientes.txt", cliente.Crear_cliente)
+    euro2024_page.ticket = boleto.Leer_Archivo("Storage/boletos.txt", boleto.Crear_boleto)
+    
+    Lectura_inicial_datos_json(euro2024_page, equipo, estadio, partido)
+    
+    eurocopa_menu(euro2024_page)
+
+def Lectura_inicial_datos_json(euro2024_page, equipo, estadio, partido):
     lista_equipos = equipo.Mapear_json_a_clase("DATOS_EQUIPOS:\n", "Equipo")
     lista_estadios = estadio.Mapear_json_a_clase("ESTADIOS:\n", "Estadio")
     lista_partidos = partido.Mapear_json_a_clase("DATOS_PARTIDOS:\n", "Partido")
-    
-    euro2024_page = Euro_App()
-    euro2024_page.cliente = cliente.Leer_Archivo("Storage/clientes.txt", cliente.Crear_cliente)
     
     equipos_existentes = equipo.Leer_registros_existentes("Storage/equipos.txt")
     estadios_existentes = estadio.Leer_registros_existentes("Storage/estadios.txt")
@@ -85,9 +91,7 @@ def __main__():
 
         if not partido.Registro_existe(partidos_existentes, item):
             partido.Actualizar_archivo("Storage/partidos.txt", item)
-    
-    eurocopa_menu(euro2024_page)
-    
+
 if __name__==__main__():
     __main__()
 

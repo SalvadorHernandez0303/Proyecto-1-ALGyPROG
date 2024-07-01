@@ -1,4 +1,4 @@
-import time, ast, json
+import time, ast, json, uuid
 
 from Interfaces.FileApiManager import FileApiManager
 from Restaurantes import Restaurante
@@ -283,18 +283,9 @@ class Euro_App:
                 eurocopa_2024.partido.sort(key = lambda x: x.numero)
                 
                 for item in eurocopa_2024.partido:
-                    for local in eurocopa_2024.equipo:
-                        if local.id == item.local:
-                            local_nombre = local.nombre
-                    for visitante in eurocopa_2024.equipo:
-                        if visitante.id == item.visitante:
-                            visitante_nombre = visitante.nombre
-                    for estadio in eurocopa_2024.estadio:
-                        if estadio.id == item.estadio:
-                            estadio_nombre = estadio.nombre
-                    
-                    print(f"{item.numero}. {local_nombre} vs. {visitante_nombre} - {estadio_nombre} - Fecha: {item.fecha}.")
+                    print(f"{item.numero}. {item.local['name']} vs. {item.visitante['name']} - {item.estadio['name']} - Fecha: {item.fecha}.")
                 
+                print("")
                 while True:
                     opcion_partido = input("Seleccione un partido: ")
                     if opcion_partido.isdigit():
@@ -309,12 +300,13 @@ class Euro_App:
                 for item in eurocopa_2024.partido:
                     if item.numero == opcion_partido:
                         partido_existe = True
+                        partido_seleccionado = item
                         break
                     
                 if partido_existe:
                     print("Que desea comprar:")
-                    print("1. Entrada General")
-                    print("2. Entrada VIP")
+                    print("1. Entrada General ($35)")
+                    print("2. Entrada VIP ($75)")
                     
                     while True:
                         opcion_entrada = input("Seleccione una opción: ")
@@ -326,9 +318,44 @@ class Euro_App:
                             print("La opción debe ser un número. Intente de nuevo.")
                             
                     if opcion_entrada == 1:
-                        pass
+                        print(f"Actualmente este partido cuenta con {partido_seleccionado.estadio['capacity_general']} entradas generales.")
+                        print("Ahora debe escoger un asiento para su boleto.") 
+                        while True:
+                            asiento = input(f"Por favor, escoja un numero entre el 1 y el {partido_seleccionado.estadio['capacity_general']} para ubicarle su asiento: ")
+                            if asiento.isdigit():
+                                # Si la opción es un número, se sale del ciclo
+                                asiento = int(opcion_entrada)
+                                break
+                            else:
+                                print("La opción debe ser un número. Intente de nuevo.")
+                        if asiento > 0 and asiento <= int(partido_seleccionado.estadio['capacity_general']):
+                            boleto_id = str(uuid.uuid4())
+                            boleto_nuevo = Ticket(boleto_id, cedula, partido_seleccionado, asiento, "General")
+                            
+                            eurocopa_2024.ticket.append(boleto_nuevo)
+                            
+                            if isinstance(boleto_nuevo.partido, Partido):
+                                boleto_nuevo.partido = boleto_nuevo.partido.to_dict()
+                            
+                            boleto_nuevo_json = json.dumps({
+                                "codigo_ticket": boleto_nuevo.codigo_ticket,
+                                "cedula_cliente": boleto_nuevo.cedula_cliente,
+                                "partido": boleto_nuevo.partido,
+                                "asiento": boleto_nuevo.asiento,
+                                "precio_base": boleto_nuevo.precio_base,
+                                "precio_descuento": boleto_nuevo.precio_descuento,
+                                "precio_mas_iva": boleto_nuevo.precio_mas_iva,
+                                "precio_total": boleto_nuevo.precio_total,
+                                "tipo": boleto_nuevo.tipo
+                            })
+                            
+                            boleto_nuevo.Actualizar_archivo("Storage/boletos.txt", str(boleto_nuevo_json))
+                            
+                        else:
+                            print("El asiento no existe. Por favor vuelve a ingresa a este menú nuevamente e inténtalo de nuevo.")
+                        
                     if opcion_entrada == 2:
-                        pass
+                        print(f"Actualmente este partido cuenta con {partido_seleccionado.estadio['capacity_vip']} entradas VIP.")
                 
                 print("")
             else:
